@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html ng-app="myFirstApp">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
-    <title>First Angular APP</title>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
   </head>
-  <body>
-    <h1> hello </h1>
-    <div ng-controller="MyFirstController">
-        <input type="text" ng-model = "name">
-        Inside my input is: {{name}}
-    </div>
-  </body>
+   <script src="angular.js"></script>
+    <script src="app.js"></script>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1><b> Does not consider an empty item</b>
+         <div class="form-group" >
+             <input id="lunch-menu" type="text" style="{{borderColor}}"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control" ng-model="menu" ng-keyup="checkIfTooMuch()">
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="printMessage()">Check If Too Much</button>
+         </div>
+         <div class="form-group message" style="{{fontColor}}" >
+           {{message}}
+         </div>
+   </div>
+
+</body>
 </html>
